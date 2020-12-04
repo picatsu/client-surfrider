@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { userActions } from '../../_actions';
+import {surferActions, userActions} from '../../_actions';
 
 function SurfersForm() {
 
@@ -69,7 +69,7 @@ function SurfersForm() {
         setSubmitted(true);
         console.log(inputs);
         if (inputs.debut && inputs.fin && inputs.spot && inputs.ville && inputs.spot && inputs.waterman) {
-            dispatch
+            dispatch(surferActions.postSurfer(inputs));
         }
     }
 
