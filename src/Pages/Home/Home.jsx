@@ -47,25 +47,6 @@ function Registered(){
             </div>
             <br/>
             <hr/>
-            <div className="row">
-                <div className="col-12 text-center">
-                    <h2>Les dernières actualiés sur le surf</h2>
-                </div>
-
-                <div className="col-3">
-                    <div className="card">
-                        <img className="card-img-top" src="https://occ-0-1068-1723.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABYQp33Z3D9uGJK0IZsYfvENQpSz4zoSrjb8v5CCl4UTiFDe7Z_yovhieDFhJtGm2Rh4LoleJfHwHdyRDMtezwqojkDXH.jpg?r=77f" alt="Card image cap" />
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.</p>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
 
         </div>
     );
