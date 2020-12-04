@@ -10,6 +10,7 @@ function SurfersForm() {
 
     const [inputs, setInputs] = useState({
         ville: '',
+        date: '',
         debut: '',
         fin: '',
         spot: '',
@@ -86,17 +87,26 @@ function SurfersForm() {
 
                         <div className="form-group">
                             <label>Ville</label>
-                            <input type="text" name="ville" value={inputs.ville} onChange={handleChange} className={'form-control'} />
+                            <input type="text" name="ville" value={inputs.ville} onChange={handleChange} className={'form-control' + (submitted && !inputs.ville ? ' is-invalid' : '')}  />
+                            {submitted && !inputs.ville &&
+                            <div className="invalid-feedback">Le nom de la ville est requise</div>
+                            }
                         </div>
 
                         <div className="form-group">
                             <label>Date de début</label>
-                            <input type="time" name="debut" value={inputs.debut} onChange={handleChange} className={'form-control'} />
+                            <input type="time" name="debut" value={inputs.debut} onChange={handleChange} className={'form-control' + (submitted && !inputs.debut ? ' is-invalid' : '')}  />
+                            {submitted && !inputs.debut &&
+                            <div className="invalid-feedback">L'heure de début est requise</div>
+                            }
                         </div>
 
                         <div className="form-group">
                             <label>Date de fin</label>
-                            <input type="time" name="fin" value={inputs.fin} onChange={handleChange} className={'form-control'} />
+                            <input type="time" name="fin" value={inputs.fin} onChange={handleChange} className={'form-control' + (submitted && !inputs.fin ? ' is-invalid' : '')}  />
+                            {submitted && !inputs.fin &&
+                            <div className="invalid-feedback">L'heure de fin est requise</div>
+                            }
                         </div>
 
                         <div className="card mb-3">
@@ -106,35 +116,53 @@ function SurfersForm() {
                             <div className="card-body">
                                 <div className="form-group">
                                     <label>Nom du spot</label>
-                                    <input type="text" name="nom" value={spot.nom} onChange={handleSpotChange} className={'form-control'} />
+                                    <input type="text" name="nom" value={spot.nom} onChange={handleSpotChange} className={'form-control' + (submitted && !spot.nom ? ' is-invalid' : '')}  />
+                                    {submitted && !spot.nom &&
+                                    <div className="invalid-feedback">Le nom du spot est  requis</div>
+                                    }
                                 </div>
 
                                 <div className="form-row">
                                     <div className="form-group col-md-6">
                                         <label>Nombre de baigneurs</label>
-                                        <input type="number" name="baigneurs" value={spot.baigneurs} onChange={handleSpotChange} className={'form-control'} />
+                                        <input type="number" name="baigneurs" value={spot.baigneurs} onChange={handleSpotChange} className={'form-control' + (submitted && !spot.baigneurs ? ' is-invalid' : '')}  />
+                                        {submitted && !spot.baigneurs &&
+                                        <div className="invalid-feedback">Le nombre de baigneurs est requis</div>
+                                        }
                                     </div>
 
                                     <div className="form-group col-md-6">
                                         <label>Nombre de pratiquants d'activités</label>
-                                        <input type="number" name="pratiquand_activite" value={spot.pratiquand_activite} onChange={handleSpotChange} className={'form-control'} />
+                                        <input type="number" name="pratiquand_activite" value={spot.pratiquand_activite} onChange={handleSpotChange} className={'form-control' + (submitted && !spot.pratiquand_activite ? ' is-invalid' : '')}  />
+                                        {submitted && !spot.pratiquand_activite &&
+                                        <div className="invalid-feedback">Le nombre de baigneurs pratiquants d'activité est requis</div>
+                                        }
                                     </div>
                                 </div>
 
                                 <div className="form-row">
                                     <div className="form-group col-md-4">
                                         <label>Nombre de bateaux de pêche</label>
-                                        <input type="number" name="nbBateauxPeche" value={spot.nbBateauxPeche} onChange={handleSpotChange} className={'form-control'} />
+                                        <input type="number" name="nbBateauxPeche" value={spot.nbBateauxPeche} onChange={handleSpotChange} className={'form-control' + (submitted && !spot.nbBateauxPeche ? ' is-invalid' : '')}  />
+                                        {submitted && !spot.nbBateauxPeche &&
+                                        <div className="invalid-feedback">Le nombre bateaux de pêche d'activité est requis</div>
+                                        }
                                     </div>
 
                                     <div className="form-group col-md-4">
                                         <label>Nombre de bateaux de loisir</label>
-                                        <input type="number" name="nbBateauxLoisir" value={spot.nbBateauxLoisir} onChange={handleSpotChange} className={'form-control'} />
+                                        <input type="number" name="nbBateauxLoisir" value={spot.nbBateauxLoisir} onChange={handleSpotChange} className={'form-control' + (submitted && !spot.nbBateauxLoisir ? ' is-invalid' : '')}  />
+                                        {submitted && !spot.nbBateauxLoisir &&
+                                        <div className="invalid-feedback">Le nombre bateaux de pêche d'activité est requis</div>
+                                        }
                                     </div>
 
                                     <div className="form-group col-md-4">
                                         <label>Nombre de bateaux à voile</label>
-                                        <input type="number" name="nbBateauxAvoile" value={spot.nbBateauxAvoile} onChange={handleSpotChange} className={'form-control'} />
+                                        <input type="number" name="nbBateauxAvoile" value={spot.nbBateauxAvoile} onChange={handleSpotChange} className={'form-control' + (submitted && !spot.nbBateauxAvoile ? ' is-invalid' : '')}  />
+                                        {submitted && !spot.nbBateauxAvoile &&
+                                        <div className="invalid-feedback">Le nombre bateaux de pêche d'activité est requis</div>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +175,10 @@ function SurfersForm() {
                             <div className="card-body">
                                 <div className="form-group">
                                     <label>Nom du spot</label>
-                                    <input type="text" name="nom" value={waterman.nom} onChange={handleWatermanChange} className={'form-control'} />
+                                    <input type="text" name="nom" value={waterman.nom} onChange={handleWatermanChange} className={'form-control' + (submitted && !waterman.nom ? ' is-invalid' : '')}  />
+                                    {submitted && !waterman.nom &&
+                                    <div className="invalid-feedback">Le nom du waterman est requis</div>
+                                    }
                                 </div>
 
                                 <div className="form-group">
