@@ -68,8 +68,8 @@ function SurfersForm() {
         inputs.waterman = waterman;
         setSubmitted(true);
         console.log(inputs);
-        if (inputs.debut && inputs.fin && inputs.spot && inputs.ville) {
-
+        if (inputs.debut && inputs.fin && inputs.spot && inputs.ville && inputs.spot && inputs.waterman) {
+            dispatch
         }
     }
 
