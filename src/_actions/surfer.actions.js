@@ -46,7 +46,7 @@ function getById(id) {
 }
 
 
-function postSurfer(surfer) {
+function postSurfer(surfer, from) {
     return dispatch => {
         dispatch(request(surfer));
 
@@ -54,6 +54,7 @@ function postSurfer(surfer) {
             .then(
                 surfer => {
                     dispatch(success(surfer));
+                    history.push(from);
                     dispatch(alertActions.success('Surfer crée avec succès'));
                 },
                 error => {

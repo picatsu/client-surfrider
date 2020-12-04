@@ -42,7 +42,7 @@ function Registered(){
             </div>
 
             <div className="row justify-content-center pt-3">
-                <a href="#" className="btn btn-primary btn-lg scrollto mr-2">Soumettre un formulaire</a>
+                <a href="/formulaire" className="btn btn-primary btn-lg scrollto mr-2">Soumettre un formulaire</a>
                 <a href="#" className="btn btn-primary btn-lg scrollto">Mes formulaires</a>
             </div>
             <br/>

@@ -68,9 +68,22 @@ function SurfersForm() {
         inputs.spot = spot;
         inputs.waterman = waterman;
         setSubmitted(true);
-        console.log(inputs);
+
         if (inputs.debut && inputs.fin && inputs.spot && inputs.ville && inputs.spot && inputs.waterman) {
-            dispatch(surferActions.postSurfer(inputs));
+            if(inputs.date && inputs.debut && inputs.fin){
+                let debut = inputs.debut.split(':');
+                let fin = inputs.fin.split(':');
+
+                inputs.debut = new Date(inputs.date);
+                inputs.debut.setHours(debut[0]);
+                inputs.debut.setMinutes(debut[1]);
+
+                inputs.fin = new Date(inputs.date);
+                inputs.fin.setHours(fin[0]);
+                inputs.fin.setMinutes(fin[1]);
+            }
+            const { from } = location.state || { from: { pathname: "/" } };
+            dispatch(surferActions.postSurfer(inputs, from));
         }
     }
 
@@ -93,8 +106,17 @@ function SurfersForm() {
                             }
                         </div>
 
+
                         <div className="form-group">
-                            <label>Date de début</label>
+                            <label>Date</label>
+                            <input type="date" name="date" value={inputs.date} onChange={handleChange} className={'form-control' + (submitted && !inputs.date ? ' is-invalid' : '')}  />
+                            {submitted && !inputs.date &&
+                            <div className="invalid-feedback">La date est requise</div>
+                            }
+                        </div>
+
+                        <div className="form-group">
+                            <label>Heure de début</label>
                             <input type="time" name="debut" value={inputs.debut} onChange={handleChange} className={'form-control' + (submitted && !inputs.debut ? ' is-invalid' : '')}  />
                             {submitted && !inputs.debut &&
                             <div className="invalid-feedback">L'heure de début est requise</div>
@@ -102,7 +124,7 @@ function SurfersForm() {
                         </div>
 
                         <div className="form-group">
-                            <label>Date de fin</label>
+                            <label>Heure de fin</label>
                             <input type="time" name="fin" value={inputs.fin} onChange={handleChange} className={'form-control' + (submitted && !inputs.fin ? ' is-invalid' : '')}  />
                             {submitted && !inputs.fin &&
                             <div className="invalid-feedback">L'heure de fin est requise</div>
