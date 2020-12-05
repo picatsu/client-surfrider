@@ -2,13 +2,17 @@ import { surferConstants } from '../_constants';
 
 export function surfers(state = {}, action) {
     switch (action.type) {
+        case surferConstants.GET_WEATHER:
+            return {
+                weather: action.weather
+            };
         case surferConstants.GET_ALL_REQUEST:
             return {
                 loading: true
             };
         case surferConstants.GET_ALL_SUCCESS:
             return {
-                items: action.surfers
+                allSurf: action.courses
             };
         case surferConstants.GET_ALL_FAILURE:
             return {
@@ -21,7 +25,7 @@ export function surfers(state = {}, action) {
             };
         case surferConstants.GET_BY_ID_SUCCESS:
             return {
-                currentCourse: action.surfer
+                currentSurf: action.surfer
             };
         case surferConstants.GET_BY_ID_FAILURE:
             return {

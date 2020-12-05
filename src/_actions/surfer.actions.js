@@ -5,11 +5,28 @@ import { history } from '../_helpers';
 
 export const surferActions = {
     getAll,
+    getWeather,
     getById,
     postSurfer,
     update,
     delete: _delete
 };
+
+function getWeather(name) {
+    return dispatch => {
+        dispatch(request());
+
+        surferService.getWeather(name)
+            .then(
+                weather => dispatch(success(weather)),
+                error => dispatch(failure(error.toString()))
+            );
+    };
+
+    function request() { return { type: surferConstants.GET_WEATHER } }
+    function success(weather) { return { type: surferConstants.GET_WEATHER, weather } }
+    function failure(error) { return { type: surferConstants.GET_WEATHER, error } }
+}
 
 function getAll() {
     return dispatch => {

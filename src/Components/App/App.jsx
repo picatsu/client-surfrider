@@ -16,6 +16,8 @@ import { Footer } from '../Footer';
 
 import './App.css';
 import {SurfersForm} from "../../Pages/Form/Form";
+import { MyFormsApp } from '../../Pages/myForms';
+import { AdminApp } from '../../Pages/admin';
 
 function App() {
     const alert = useSelector(state => state.alert);
@@ -40,6 +42,8 @@ function App() {
                         <PrivateRoute exact path="/formulaire" component={SurfersForm} />
                         <Route exact path="/" component={HomePage} />
                         <Route path="/login" component={LoginPage} />
+                        <Route path="/myforms" component={MyFormsApp} />
+                        <Route path="/admin" component={AdminApp} />
                         <Route path="/register" component={RegisterPage} />
 
                     </Switch>

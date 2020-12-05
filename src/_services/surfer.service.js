@@ -4,10 +4,20 @@ import { authHeader } from '../_helpers';
 export const surferService = {
     getAll,
     getById,
+    getWeather,
     postSurfer,
     update,
     delete: _delete
 };
+
+function getWeather(name) {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${config.apiUrl}/surfers/weather/`+ name, requestOptions).then(handleResponse);
+}
 
 function getAll() {
     const requestOptions = {

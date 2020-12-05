@@ -42,10 +42,10 @@ function Navbar() {
     return (
         <nav className="site-header sticky-top">
             <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand" target="_blank" href="https://surfrider.eu/">
                     Surfrider
                 </a>
-
+                <a className="top-link py-2 d-none d-md-inline-block" href="/admin">Admin View</a>
                 <a className="top-link py-2 d-none d-md-inline-block" href="/">Accueil</a>
                 <a className="top-link py-2 d-none d-md-inline-block" href="#">Information</a>
                 {user && user.role === 'TEACHER' &&

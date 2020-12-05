@@ -64,7 +64,9 @@ function LoginPage() {
                         </div>
                     </form>
                 </div>
+                
             </div>
+            <p style={{fontSize: "12px"}}> Identifiants de test :  test  /  test </p>
         </div>
     );
 }
