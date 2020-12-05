@@ -1,10 +1,15 @@
-FROM node:14-alpine
+FROM node:12.16.1-alpine3.9 as build
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY ./package.json /app/
+RUN yarn --silent
+COPY . /app
+RUN yarn build
 
-WORKDIR /var/www
-
-COPY package*.json ./
-COPY .babelrc ./
-RUN npm install
-COPY ./src ./src
-EXPOSE 8000
-CMD ["npm", "start"]
+# stage 2 - build the final image and copy the react build files
+FROM nginx:1.17.8-alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
